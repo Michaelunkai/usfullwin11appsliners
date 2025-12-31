@@ -1,0 +1,163 @@
+_______________________________________________________________________________
+
+performance boosters & auto-fixers (NOT in a.txt):
+______________________________________________________________________________
+
+
+
+***CCleaner Portable
+
+
+$n='CCleaner';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.ccleaner.com/ccleaner/download/portable' -OutFile $z -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'CCleaner64.exe' -Recurse|Select-Object -First 1;if(!$exe){$exe=Get-ChildItem $t -Filter 'CCleaner.exe' -Recurse|Select-Object -First 1};Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*CCleaner*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*CCleaner*" -Recurse -Force -EA 0;Remove-Item "$env:APPDATA\Piriform*" -Recurse -Force -EA 0;Remove-Item "$env:LOCALAPPDATA\Piriform*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Defraggler Portable
+
+
+$n='Defraggler';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.ccleaner.com/defraggler/download/portable' -OutFile $z -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Defraggler64.exe' -Recurse|Select-Object -First 1;if(!$exe){$exe=Get-ChildItem $t -Filter 'Defraggler.exe' -Recurse|Select-Object -First 1};Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Defraggler*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Defraggler*" -Recurse -Force -EA 0;Remove-Item "$env:APPDATA\Piriform*" -Recurse -Force -EA 0;Remove-Item "$env:LOCALAPPDATA\Piriform*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Revo Uninstaller Portable
+
+
+$n='RevoUninstaller';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.revouninstaller.com/download/RevoUninProPortable.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'RevoUninPro.exe' -Recurse|Select-Object -First 1;if(!$exe){$exe=Get-ChildItem $t -Filter 'RevoUnin.exe' -Recurse|Select-Object -First 1};Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Revo*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Revo*" -Recurse -Force -EA 0;Remove-Item "$env:APPDATA\VS Revo Group*" -Recurse -Force -EA 0;Remove-Item "$env:LOCALAPPDATA\VS Revo Group*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Display Driver Uninstaller (DDU)
+
+
+$n='DDU';$t="$env:TEMP\$n";$exe="$t\DDU.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.wagnardsoft.com/DDU/download/DDU%20v18.1.4.0.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*DDU*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*DDU*" -Recurse -Force -EA 0;Remove-Item "$env:APPDATA\Wagnardsoft*" -Recurse -Force -EA 0;Remove-Item "$env:LOCALAPPDATA\Wagnardsoft*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Mem Reduct
+
+
+$n='MemReduct';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/henrypp/memreduct/releases/latest').assets|Where-Object{$_.name -match 'bin\.zip$'}|Select-Object -First 1;Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'memreduct.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*MemReduct*" -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*memreduct*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*MemReduct*" -Recurse -Force -EA 0;Remove-Item "$env:APPDATA\Henry++*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***ISLC (Intelligent Standby List Cleaner)
+
+
+$n='ISLC';$t="$env:TEMP\$n";$exe="$t\ISLC.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.wagnardsoft.com/ISLC/ISLC%20v1.0.2.8.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*ISLC*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*ISLC*" -Recurse -Force -EA 0;Remove-Item "$env:APPDATA\Wagnardsoft*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***CleanmgrPlus
+
+
+$n='CleanmgrPlus';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/builtbybel/CleanmgrPlus/releases/latest').assets|Where-Object{$_.name -match '\.zip$'}|Select-Object -First 1;Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'CleanmgrPlus.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Cleanmgr*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Cleanmgr*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Privatezilla
+
+
+$n='Privatezilla';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/builtbybel/privatezilla/releases/latest').assets|Where-Object{$_.name -match '\.zip$'}|Select-Object -First 1;Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Privatezilla.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Privatezilla*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Privatezilla*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Bloatynosy
+
+
+$n='Bloatynosy';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/builtbybel/Bloatynosy/releases/latest').assets|Where-Object{$_.name -match '\.zip$'}|Select-Object -First 1;Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'bloatynosy.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Bloatynosy*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Bloatynosy*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***DriverStore Explorer (RAPR)
+
+
+$n='DriverStoreExplorer';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/lostindark/DriverStoreExplorer/releases/latest').assets|Where-Object{$_.name -match '\.zip$'}|Select-Object -First 1;Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Rapr.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*DriverStore*" -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*Rapr*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*DriverStore*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Windows Update Blocker
+
+
+$n='WinUpdateBlocker';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/windows-update-blocker/wub.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Wub.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*wub*" -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*WindowsUpdate*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*WinUpdate*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***DNS Jumper
+
+
+$n='DNSJumper';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/dns-jumper/DnsJumper.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'DnsJumper.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*DNS*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*DNS*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***SpeedyFox
+
+
+$n='SpeedyFox';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://crystalidea.com/downloads/speedyfox.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'speedyfox.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*SpeedyFox*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*SpeedyFox*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***TCP Optimizer
+
+
+$n='TCPOptimizer';$t="$env:TEMP\$n";$exe="$t\TCPOptimizer.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.speedguide.net/files/TCPOptimizer.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*TCP*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*TCP*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Quick CPU
+
+
+$n='QuickCPU';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://coderbag.com/assets/downloads/cpm/currentversion/QuickCpuSetup64.zip' -OutFile $z -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'QuickCpu*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*QuickCPU*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*QuickCPU*" -Recurse -Force -EA 0;Remove-Item "$env:APPDATA\CoderBag*" -Recurse -Force -EA 0;Remove-Item "$env:LOCALAPPDATA\CoderBag*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***O&O AppBuster
+
+
+$n='OOAppBuster';$t="$env:TEMP\$n";$exe="$t\OOAB.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://dl5.oo-software.com/files/ooapps/appbuster/OOAB.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*OOAB*" -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*AppBuster*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*AppBuster*" -Recurse -Force -EA 0;Remove-Item "$env:LOCALAPPDATA\O&O*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Debotnet
+
+
+$n='Debotnet';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/builtbybel/debotnet/releases/latest').assets|Where-Object{$_.name -match '\.zip$'}|Select-Object -First 1;Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'debotnet.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Debotnet*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Debotnet*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***W10Privacy
+
+
+$n='W10Privacy';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.w10privacy.de/deutsch-download/W10Privacy.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'W10Privacy.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*W10Privacy*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*W10Privacy*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***System Ninja
+
+
+$n='SystemNinja';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.systemninjatools.com/download.php?type=portable' -OutFile $z -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'SystemNinja.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*SystemNinja*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*SystemNinja*" -Recurse -Force -EA 0;Remove-Item "$env:APPDATA\SystemNinja*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Sysinternals Suite
+
+
+$n='SysinternalsSuite';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.sysinternals.com/files/SysinternalsSuite.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;Write-Host "Opening folder with all Sysinternals tools..." -ForegroundColor Green;Start-Process "explorer.exe" -ArgumentList $t -Wait;Write-Host "Close Explorer window when done. Press ENTER to purge..." -ForegroundColor Yellow;Read-Host;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Sysinternals*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Sysinternals*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
