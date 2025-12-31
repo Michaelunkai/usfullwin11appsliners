@@ -313,3 +313,811 @@ $n='ReEnable';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $
 
 
 $n='EdgeBlocker';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/edge-blocker/EdgeBlock.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Edge_Blocker*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Edge*Block*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Edge*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***NirLauncher
+
+
+$n='NirLauncher';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n (200+ utilities package)..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://launcher.nirsoft.net/downloads/nirlauncher.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'NirLauncher.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*NirLauncher*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Nir*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***UltraDefrag
+
+
+$n='UltraDefrag';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://downloads.sourceforge.net/project/ultradefrag/stable-release/14.0.0/ultradefrag-portable-14.0.0.bin.amd64.zip' -OutFile $z -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'ultradefrag.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*UltraDefrag*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*UltraDefrag*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Auslogics Disk Defrag Portable
+
+
+$n='AuslogicsDiskDefrag';$t="$env:TEMP\$n";$exe="$t\disk-defrag-portable.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://downloads.auslogics.com/en/disk-defrag/disk-defrag-portable.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*Auslogics*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Auslogics*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***WinDirStat
+
+
+$n='WinDirStat';$t="$env:TEMP\$n";$exe="$t\windirstat.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://downloads.sourceforge.net/project/windirstat/windirstat/1.1.2%20installer%20re-release%20%28more%20languages%21%29/windirstat1_1_2_setup.exe' -OutFile $exe -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*WinDirStat*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*WinDirStat*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***TreeSize Free
+
+
+$n='TreeSizeFree';$t="$env:TEMP\$n";$exe="$t\TreeSizeFree.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://downloads.jam-software.de/treesize_free/TreeSizeFree-Portable.zip' -OutFile "$t.zip" -UseBasicParsing;Expand-Archive -Path "$t.zip" -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'TreeSizeFree.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "$t.zip" -Force -EA 0;Remove-Item "F:\Downloads\*TreeSize*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*TreeSize*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***SpaceSniffer
+
+
+$n='SpaceSniffer';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'http://www.uderzo.it/main_products/space_sniffer/files/spacesniffer_1_3_0_2.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'SpaceSniffer.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*SpaceSniffer*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*SpaceSniffer*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Eraser
+
+
+$n='Eraser';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://sourceforge.net/projects/eraser/files/latest/download' -OutFile "$t\eraser.exe" -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';$exe=Get-ChildItem $t -Filter '*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*Eraser*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Eraser*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***FileZilla Portable
+
+
+$n='FileZilla';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.filezilla-project.org/client/FileZilla_3.68.1_win64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'filezilla.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*FileZilla*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*FileZilla*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***PuTTY Portable
+
+
+$n='PuTTY';$t="$env:TEMP\$n";$exe="$t\putty.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*putty*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*putty*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***WinSCP Portable
+
+
+$n='WinSCP';$t="$env:TEMP\$n";$exe="$t\WinSCP.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://winscp.net/download/WinSCP-6.5.1-Portable.zip' -OutFile "$t.zip" -UseBasicParsing;Expand-Archive -Path "$t.zip" -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'WinSCP.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "$t.zip" -Force -EA 0;Remove-Item "F:\Downloads\*WinSCP*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*WinSCP*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***7-Zip Portable
+
+
+$n='7Zip';$t="$env:TEMP\$n";$exe="$t\7-Zip-Portable.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://portableapps.com/downloading/?app=7-ZipPortable&id=38264' -OutFile $exe -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*7-Zip*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*7-Zip*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Notepad++ Portable
+
+
+$n='NotepadPP';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.6/npp.8.7.6.portable.x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'notepad++.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*notepad*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*notepad*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***BleachBit Portable
+
+
+$n='BleachBitPortable';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.bleachbit.org/BleachBit-4.6.2-portable.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'bleachbit.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*BleachBit*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*BleachBit*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Bulk Rename Utility Portable
+
+
+$n='BulkRename';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.bulkrenameutility.co.uk/Downloads/BRU_NoInstall.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Bulk Rename Utility.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*BulkRename*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*BulkRename*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Rufus Portable
+
+
+$n='Rufus';$t="$env:TEMP\$n";$exe="$t\rufus.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://github.com/pbatard/rufus/releases/download/v4.7/rufus-4.7p.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*rufus*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*rufus*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Ventoy
+
+
+$n='Ventoy';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://github.com/ventoy/Ventoy/releases/download/v1.0.99/ventoy-1.0.99-windows.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Ventoy2Disk.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Ventoy*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Ventoy*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Etcher Portable
+
+
+$n='Etcher';$t="$env:TEMP\$n";$exe="$t\balenaEtcher-Portable.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://github.com/balena-io/etcher/releases/download/v1.19.27/balenaEtcher-Portable-1.19.27.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*Etcher*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Etcher*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Balabolka Portable
+
+
+$n='Balabolka';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'http://www.cross-plus-a.com/balabolka.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'balabolka.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Balabolka*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Balabolka*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Audacity Portable
+
+
+$n='Audacity';$t="$env:TEMP\$n";$exe="$t\audacity-portable.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://github.com/audacity/audacity/releases/download/Audacity-3.7.2/audacity-win-3.7.2-x64.zip' -OutFile "$t.zip" -UseBasicParsing;Expand-Archive -Path "$t.zip" -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Audacity.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "$t.zip" -Force -EA 0;Remove-Item "F:\Downloads\*Audacity*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Audacity*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***VLC Portable
+
+
+$n='VLC';$t="$env:TEMP\$n";$exe="$t\VLCPortable.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://portableapps.com/downloading/?app=VLCPortable&id=38262' -OutFile $exe -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*VLC*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*VLC*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***GIMP Portable
+
+
+$n='GIMP';$t="$env:TEMP\$n";$exe="$t\GIMPPortable.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://portableapps.com/downloading/?app=GIMPPortable&id=38263' -OutFile $exe -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*GIMP*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*GIMP*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Wireshark Portable
+
+
+$n='Wireshark';$t="$env:TEMP\$n";$exe="$t\WiresharkPortable.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://portableapps.com/downloading/?app=WiresharkPortable&id=38261' -OutFile $exe -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*Wireshark*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Wireshark*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Nmap Portable
+
+
+$n='Nmap';$t="$env:TEMP\$n";$exe="$t\nmap.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://nmap.org/dist/nmap-7.95-win32.zip' -OutFile "$t.zip" -UseBasicParsing;Expand-Archive -Path "$t.zip" -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'nmap.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n (opens command line)..." -ForegroundColor Green;Start-Process 'cmd.exe' -ArgumentList "/k cd /d `"$($exe.DirectoryName)`" && nmap.exe --help" -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "$t.zip" -Force -EA 0;Remove-Item "F:\Downloads\*nmap*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*nmap*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Advanced IP Scanner
+
+
+$n='AdvancedIPScanner';$t="$env:TEMP\$n";$exe="$t\Advanced_IP_Scanner.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.advanced-ip-scanner.com/download/files/Advanced_IP_Scanner_2.5.4594.1.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*Advanced*IP*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Advanced*IP*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***AngryIP Scanner
+
+
+$n='AngryIPScanner';$t="$env:TEMP\$n";$exe="$t\AngryIP.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://github.com/angryip/ipscan/releases/download/3.9.1/ipscan-3.9.1-setup.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*AngryIP*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*AngryIP*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***CurrPorts (NirSoft)
+
+
+$n='CurrPorts';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/cports-x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'cports.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*CurrPorts*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*CurrPorts*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***SmartSniff (NirSoft)
+
+
+$n='SmartSniff';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/smsniff-x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'smsniff.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*SmartSniff*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*SmartSniff*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***WifiInfoView (NirSoft)
+
+
+$n='WifiInfoView';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/wifiinfoview-x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'WifiInfoView.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*WifiInfo*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*WifiInfo*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***NetworkTrafficView (NirSoft)
+
+
+$n='NetworkTrafficView';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/networktrafficview-x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'NetworkTrafficView.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*NetworkTraffic*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*NetworkTraffic*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***WirelessNetView (NirSoft)
+
+
+$n='WirelessNetView';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/wirelessnetview-x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'WirelessNetView.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*WirelessNet*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*WirelessNet*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***BluetoothView (NirSoft)
+
+
+$n='BluetoothView';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/bluetoothview-x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'BluetoothView.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Bluetooth*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Bluetooth*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***USBDeview (NirSoft)
+
+
+$n='USBDeview';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/usbdeview-x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'USBDeview.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*USBDe*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*USBDe*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***ServiWin (NirSoft)
+
+
+$n='ServiWin';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/serviwin-x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'serviwin.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*ServiWin*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*ServiWin*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***DevManView (NirSoft)
+
+
+$n='DevManView';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/devmanview-x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'DevManView.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*DevManView*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*DevManView*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***RunAsDate (NirSoft)
+
+
+$n='RunAsDate';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/runasdate-x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'RunAsDate.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*RunAsDate*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*RunAsDate*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***WebBrowserPassView (NirSoft)
+
+
+$n='WebBrowserPassView';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/toolsdownload/webbrowserpassview.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'WebBrowserPassView.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*WebBrowser*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*WebBrowser*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***ProduKey (NirSoft)
+
+
+$n='ProduKey';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/produkey-x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'ProduKey.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*ProduKey*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*ProduKey*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***WinPrefetchView (NirSoft)
+
+
+$n='WinPrefetchView';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/winprefetchview-x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'WinPrefetchView.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*WinPrefetch*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*WinPrefetch*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***DiskCountersView (NirSoft)
+
+
+$n='DiskCountersView';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/diskcountersview.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'DiskCountersView.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*DiskCounters*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*DiskCounters*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***InstalledCodec (NirSoft)
+
+
+$n='InstalledCodec';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/installedcodec.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'InstalledCodec.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*InstalledCodec*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*InstalledCodec*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***PowerRun (Sordum)
+
+
+$n='PowerRun';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/power-run/PowerRun.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'PowerRun*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*PowerRun*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*PowerRun*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Defender Injector (Sordum)
+
+
+$n='DefenderInjector';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/defender-injector/dControl.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'dControl*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*dControl*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*dControl*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Easy Context Menu (Sordum)
+
+
+$n='EasyContextMenu';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/easy-context-menu/ec_menu.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'EcMenu*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*EcMenu*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*EcMenu*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Backup Start Menu Layout (Sordum)
+
+
+$n='BackupStartMenu';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/backup-start-menu-layout/BackupSML.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'BackupSML*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*BackupSML*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*BackupSML*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***ReIcon (Sordum)
+
+
+$n='ReIcon';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/reicon/ReIcon.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'ReIcon*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*ReIcon*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*ReIcon*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Simple Run Blocker (Sordum)
+
+
+$n='SimpleRunBlocker';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/simple-run-blocker/Run-Blocker.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'RunBlocker*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*RunBlocker*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*RunBlocker*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Folder Painter (Sordum)
+
+
+$n='FolderPainter';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/folder-painter/Folder.Painter.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'FolderPainter*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*FolderPainter*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*FolderPainter*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Simple Windows 11 Classic Context Menu (Sordum)
+
+
+$n='Win11ClassicContext';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/windows-11-classic-context-menu/W11ClassicMenu.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'W11ClassicMenu*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*W11Classic*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*W11Classic*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***MSEdge Redirect Disabler (Sordum)
+
+
+$n='MSEdgeRedirect';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/edge-redirect-blocker/MSEdgeRedirect.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'MSEdgeRedirect*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*MSEdge*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*MSEdge*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Defender Control (Sordum)
+
+
+$n='DefenderControl';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/defender-control/DefenderControl.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'dControl*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*DefenderControl*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*DefenderControl*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Firewall App Blocker (Sordum)
+
+
+$n='FirewallAppBlocker';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/firewall-app-blocker/fab.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Fab*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Fab*" -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*FirewallApp*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Firewall*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***TaskbarX
+
+
+$n='TaskbarX';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/ChrisAnd1998/TaskbarX/releases/latest').assets|Where-Object{$_.name -match '\.zip$'}|Select-Object -First 1;Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'TaskbarX*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*TaskbarX*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*TaskbarX*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***ScreenToGif
+
+
+$n='ScreenToGif';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/NickeManarin/ScreenToGif/releases/latest').assets|Where-Object{$_.name -match 'Portable\.zip$'}|Select-Object -First 1;Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'ScreenToGif.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*ScreenToGif*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*ScreenToGif*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***ShareX
+
+
+$n='ShareX';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/ShareX/ShareX/releases/latest').assets|Where-Object{$_.name -match 'portable\.zip$'}|Select-Object -First 1;Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'ShareX.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*ShareX*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*ShareX*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Lightshot
+
+
+$n='Lightshot';$t="$env:TEMP\$n";$exe="$t\Lightshot.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://app.prntscr.com/build/setup-lightshot.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*Lightshot*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Lightshot*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***HashTab
+
+
+$n='HashTab';$t="$env:TEMP\$n";$exe="$t\HashTab.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'http://implbits.com/products/hashtab/HashTab_v6.0.0.34_Setup.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*HashTab*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*HashTab*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***HashMyFiles (NirSoft)
+
+
+$n='HashMyFiles';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.nirsoft.net/utils/hashmyfiles-x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'HashMyFiles.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*HashMyFiles*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*HashMyFiles*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***WinMTR
+
+
+$n='WinMTR';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://github.com/White-Tiger/WinMTR/releases/download/v0.92/WinMTR-v092.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'WinMTR_x64.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*WinMTR*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*WinMTR*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***HTTrack Website Copier
+
+
+$n='HTTrack';$t="$env:TEMP\$n";$exe="$t\httrack.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://mirror.httrack.com/historical/httrack-3.49.2.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*HTTrack*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*HTTrack*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***SumatraPDF
+
+
+$n='SumatraPDF';$t="$env:TEMP\$n";$exe="$t\SumatraPDF.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sumatrapdfreader.org/dl/rel/3.5.2/SumatraPDF-3.5.2-64.zip' -OutFile "$t.zip" -UseBasicParsing;Expand-Archive -Path "$t.zip" -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'SumatraPDF.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "$t.zip" -Force -EA 0;Remove-Item "F:\Downloads\*SumatraPDF*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*SumatraPDF*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Calibre Portable
+
+
+$n='Calibre';$t="$env:TEMP\$n";$exe="$t\calibre.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.calibre-ebook.com/calibre-portable-installer-latest.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*Calibre*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Calibre*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***IrfanView Portable
+
+
+$n='IrfanView';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.irfanview.com/files/iview465_x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'i_view64.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*IrfanView*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*IrfanView*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***ImageGlass
+
+
+$n='ImageGlass';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/d2phap/ImageGlass/releases/latest').assets|Where-Object{$_.name -match 'portable.*\.zip$'}|Select-Object -First 1;Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'ImageGlass.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*ImageGlass*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*ImageGlass*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***XnView Portable
+
+
+$n='XnView';$t="$env:TEMP\$n";$exe="$t\XnView.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.xnview.com/XnView-win-full.zip' -OutFile "$t.zip" -UseBasicParsing;Expand-Archive -Path "$t.zip" -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'xnview.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "$t.zip" -Force -EA 0;Remove-Item "F:\Downloads\*XnView*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*XnView*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***KeePass Password Safe
+
+
+$n='KeePass';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.57.1/KeePass-2.57.1.zip/download' -OutFile $z -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'KeePass.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*KeePass*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*KeePass*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***PDF-XChange Editor Portable
+
+
+$n='PDFXChange';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.tracker-software.com/downloads/PDFXE10.x64.Portable.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'PDFXEdit.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*PDF*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*PDF*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***AutoHotkey Portable
+
+
+$n='AutoHotkey';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.autohotkey.com/download/ahk.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'AutoHotkeyU64.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*AutoHotkey*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*AutoHotkey*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Ditto Clipboard Manager
+
+
+$n='Ditto';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/sabrogden/Ditto/releases/latest').assets|Where-Object{$_.name -match 'Portable.*\.zip$'}|Select-Object -First 1;Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Ditto.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Ditto*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Ditto*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***CopyQ Clipboard Manager
+
+
+$n='CopyQ';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/hluk/CopyQ/releases/latest').assets|Where-Object{$_.name -match 'portable.*\.zip$'}|Select-Object -First 1;Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'copyq.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*CopyQ*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*CopyQ*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Everything Search
+
+
+$n='EverythingSearch';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.voidtools.com/Everything-1.4.1.1030.x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Everything.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Everything*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Everything*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***ProcessHacker
+
+
+$n='ProcessHacker';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://github.com/processhacker/processhacker/releases/download/v2.39/processhacker-2.39-bin.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'ProcessHacker.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*ProcessHacker*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*ProcessHacker*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***WinCDEmu
+
+
+$n='WinCDEmu';$t="$env:TEMP\$n";$exe="$t\WinCDEmu.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://github.com/sysprogs/WinCDEmu/releases/download/v4.1/WinCDEmu-4.1.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*WinCDEmu*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*WinCDEmu*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Virtual CloneDrive
+
+
+$n='VirtualCloneDrive';$t="$env:TEMP\$n";$exe="$t\VCD.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://static.slysoft.com/SetupVirtualCloneDrive.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*VirtualClone*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*VirtualClone*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***ImgBurn
+
+
+$n='ImgBurn';$t="$env:TEMP\$n";$exe="$t\ImgBurn.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'http://download.imgburn.com/SetupImgBurn_2.5.8.0.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*ImgBurn*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*ImgBurn*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Sandboxie Plus
+
+
+$n='SandboxiePlus';$t="$env:TEMP\$n";$exe="$t\Sandboxie.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/sandboxie-plus/Sandboxie/releases/latest').assets|Where-Object{$_.name -match 'x64.*\.exe$' -and $_.name -notmatch 'Plus'}|Select-Object -First 1;Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*Sandboxie*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Sandboxie*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***GPU Caps Viewer
+
+
+$n='GPUCapsViewer';$t="$env:TEMP\$n";$exe="$t\GPU_Caps_Viewer.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://downloads.geeks3d.com/dlz/GPU_Caps_Viewer_1.66.1.0_portable.zip' -OutFile "$t.zip" -UseBasicParsing;Expand-Archive -Path "$t.zip" -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'GPU_Caps_Viewer.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "$t.zip" -Force -EA 0;Remove-Item "F:\Downloads\*GPU*Caps*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*GPU*Caps*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Cinebench
+
+
+$n='Cinebench';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://http.download.nvidia.com/downloads/cinebench/Cinebench2024.exe' -OutFile "$t\Cinebench.exe" -UseBasicParsing;$exe=Get-ChildItem $t -Filter '*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*Cinebench*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Cinebench*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Prime95
+
+
+$n='Prime95';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.mersenne.org/ftp_root/gimps/p95v3019b20.win64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'prime95.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Prime95*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Prime95*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***FurMark
+
+
+$n='FurMark';$t="$env:TEMP\$n";$exe="$t\FurMark.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://downloads.geeks3d.com/dlz/FurMark_2.3.0.0_Setup.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*FurMark*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*FurMark*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***CpuFrequenz (Sordum)
+
+
+$n='CpuFrequenz';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/cpu-frequenz/Cpu-Frequenz.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'CpuFrequenz*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*CpuFrequenz*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*CpuFrequenz*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***MemTest86+
+
+
+$n='MemTest86Plus';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.memtest.org/download/v7.00/mt86plus_7.00_64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;Write-Host "Files extracted. See README for usage." -ForegroundColor Green;Start-Process "explorer.exe" -ArgumentList $t -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*MemTest*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*MemTest*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***AdwCleaner
+
+
+$n='AdwCleaner';$t="$env:TEMP\$n";$exe="$t\adwcleaner.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://downloads.malwarebytes.com/file/adwcleaner' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*adw*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*adw*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Malwarebytes Anti-Rootkit
+
+
+$n='MBAR';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://downloads.malwarebytes.com/file/mbar' -OutFile "$t\mbar.exe" -UseBasicParsing;$exe=Get-ChildItem $t -Filter '*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*mbar*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*mbar*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***RKill
+
+
+$n='RKill';$t="$env:TEMP\$n";$exe="$t\rkill.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.bleepingcomputer.com/grinler/rkill.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*rkill*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*rkill*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***HijackThis
+
+
+$n='HijackThis';$t="$env:TEMP\$n";$exe="$t\HijackThis.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://github.com/dragokas/hijackthis/raw/devel/binary/HijackThis.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*HijackThis*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*HijackThis*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***ESET Online Scanner
+
+
+$n='ESETOnlineScanner';$t="$env:TEMP\$n";$exe="$t\esetonlinescanner.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.eset.com/com/eset/tools/online_scanner/latest/esetonlinescanner.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*eset*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*eset*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Kaspersky TDSSKiller
+
+
+$n='TDSSKiller';$t="$env:TEMP\$n";$exe="$t\TDSSKiller.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://devbuilds.s.kaspersky-labs.com/devbuilds/KVRT/latest/full/KVRT.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*TDSS*" -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*KVRT*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*TDSS*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Kaspersky Virus Removal Tool
+
+
+$n='KasperskyVRT';$t="$env:TEMP\$n";$exe="$t\KVRT.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://devbuilds.s.kaspersky-labs.com/devbuilds/KVRT/latest/full/KVRT.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*KVRT*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*KVRT*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Dr.Web CureIt
+
+
+$n='DrWebCureIt';$t="$env:TEMP\$n";$exe="$t\cureit.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://free.drweb.com/download+cureit+free' -OutFile $exe -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*cureit*" -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*drweb*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*drweb*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Junkware Removal Tool
+
+
+$n='JRT';$t="$env:TEMP\$n";$exe="$t\JRT.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://thisisudax.org/downloads/JRT.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*JRT*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*JRT*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***SUPERAntiSpyware Portable
+
+
+$n='SUPERAntiSpyware';$t="$env:TEMP\$n";$exe="$t\SAS.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.superantispyware.com/SUPERAntiSpyware_Portable.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*SUPER*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*SUPER*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Comodo Cleaning Essentials
+
+
+$n='ComodoCleaningEssentials';$t="$env:TEMP\$n";$exe="$t\CCE.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.comodo.com/cce/download/setups/cce_x64.zip' -OutFile "$t.zip" -UseBasicParsing;Expand-Archive -Path "$t.zip" -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'CCE.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "$t.zip" -Force -EA 0;Remove-Item "F:\Downloads\*CCE*" -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*Comodo*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Comodo*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***TeraCopy
+
+
+$n='TeraCopy';$t="$env:TEMP\$n";$exe="$t\TeraCopy.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.codesector.com/files/teracopy.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*TeraCopy*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*TeraCopy*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***FastCopy
+
+
+$n='FastCopy';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://fastcopy.jp/archive/FastCopy5.9.2_x64.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'FastCopy.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*FastCopy*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*FastCopy*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***WinDirStat Portable
+
+
+$n='WinDirStatPortable';$t="$env:TEMP\$n";$exe="$t\windirstat_portable.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://sourceforge.net/projects/windirstatportable/files/latest/download' -OutFile $exe -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*WinDirStat*Portable*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*WinDirStat*Portable*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***MSI Afterburner
+
+
+$n='MSIAfterburner';$t="$env:TEMP\$n";$exe="$t\MSIAfterburner.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.msi.com/uti_exe/vga/MSIAfterburnerSetup.zip' -OutFile "$t.zip" -UseBasicParsing;Expand-Archive -Path "$t.zip" -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter '*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "$t.zip" -Force -EA 0;Remove-Item "F:\Downloads\*MSIAfterburner*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*MSIAfterburner*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***AIDA64 Extreme (Trial)
+
+
+$n='AIDA64';$t="$env:TEMP\$n";$exe="$t\aida64.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.aida64.com/aida64extreme700.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*aida64*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*aida64*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***WhoCrashed
+
+
+$n='WhoCrashed';$t="$env:TEMP\$n";$exe="$t\whocrashedSetup.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.resplendence.com/download/whocrashedSetup.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*WhoCrashed*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*WhoCrashed*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***BlueLifeKeyFreeze (Sordum)
+
+
+$n='KeyFreeze';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/bluelife-keyfreeze/KeyFreeze.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'KeyFreeze*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*KeyFreeze*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*KeyFreeze*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Monitor Off Utility (Sordum)
+
+
+$n='MonitorOff';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/monitor-off/MonitorOff.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'MonitorOff*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*MonitorOff*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*MonitorOff*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***GSmartControl
+
+
+$n='GSmartControl';$t="$env:TEMP\$n";$exe="$t\gsmartcontrol.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://sourceforge.net/projects/gsmartcontrol/files/latest/download' -OutFile $exe -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*gsmartcontrol*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*gsmartcontrol*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
