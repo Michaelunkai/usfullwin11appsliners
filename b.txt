@@ -161,3 +161,155 @@ $n='SystemNinja';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Pat
 
 
 $n='SysinternalsSuite';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.sysinternals.com/files/SysinternalsSuite.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;Write-Host "Opening folder with all Sysinternals tools..." -ForegroundColor Green;Start-Process "explorer.exe" -ArgumentList $t -Wait;Write-Host "Close Explorer window when done. Press ENTER to purge..." -ForegroundColor Yellow;Read-Host;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Sysinternals*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Sysinternals*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***CrystalDiskInfo
+
+
+$n='CrystalDiskInfo';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://downloads.sourceforge.net/project/crystaldiskinfo/9.5.0/CrystalDiskInfo9_5_0.zip' -OutFile $z -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'DiskInfo64.exe' -Recurse|Select-Object -First 1;if(!$exe){$exe=Get-ChildItem $t -Filter 'DiskInfo.exe' -Recurse|Select-Object -First 1};Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Crystal*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Crystal*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***CrystalDiskMark
+
+
+$n='CrystalDiskMark';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://downloads.sourceforge.net/project/crystaldiskmark/8.0.5/CrystalDiskMark8_0_5.zip' -OutFile $z -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'DiskMark64.exe' -Recurse|Select-Object -First 1;if(!$exe){$exe=Get-ChildItem $t -Filter 'DiskMark.exe' -Recurse|Select-Object -First 1};Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*CrystalDisk*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*CrystalDisk*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Speccy Portable
+
+
+$n='Speccy';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.ccleaner.com/speccy/download/portable' -OutFile $z -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Speccy64.exe' -Recurse|Select-Object -First 1;if(!$exe){$exe=Get-ChildItem $t -Filter 'Speccy.exe' -Recurse|Select-Object -First 1};Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Speccy*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Speccy*" -Recurse -Force -EA 0;Remove-Item "$env:APPDATA\Piriform*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***CPU-Z
+
+
+$n='CPUZ';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://download.cpuid.com/cpu-z/cpu-z_2.12-en.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'cpuz_x64.exe' -Recurse|Select-Object -First 1;if(!$exe){$exe=Get-ChildItem $t -Filter 'cpuz*.exe' -Recurse|Select-Object -First 1};Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*cpu-z*" -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*cpuz*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*CPUZ*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***GPU-Z
+
+
+$n='GPUZ';$t="$env:TEMP\$n";$exe="$t\GPU-Z.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.techpowerup.com/download/techpowerup-gpu-z/' -OutFile $exe -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*GPU-Z*" -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*gpuz*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*GPUZ*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***HWiNFO Portable
+
+
+$n='HWiNFO';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.hwinfo.com/files/hw64_816.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'HWiNFO64.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*HWiNFO*" -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*hw64*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*HWiNFO*" -Recurse -Force -EA 0;Remove-Item "$env:APPDATA\HWiNFO*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Recuva Portable
+
+
+$n='Recuva';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.ccleaner.com/recuva/download/portable' -OutFile $z -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Recuva64.exe' -Recurse|Select-Object -First 1;if(!$exe){$exe=Get-ChildItem $t -Filter 'Recuva.exe' -Recurse|Select-Object -First 1};Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Recuva*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Recuva*" -Recurse -Force -EA 0;Remove-Item "$env:APPDATA\Piriform*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Geek Uninstaller
+
+
+$n='GeekUninstaller';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://geekuninstaller.com/geek.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'geek.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Geek*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Geek*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***IObit Unlocker
+
+
+$n='IObitUnlocker';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://cdn.iobit.com/dl/iobitunlocker.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'IObitUnlocker.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*IObit*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*IObit*" -Recurse -Force -EA 0;Remove-Item "$env:APPDATA\IObit*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***LockHunter
+
+
+$n='LockHunter';$t="$env:TEMP\$n";$exe="$t\LockHunter.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://lockhunter.com/assets/exe/lockhuntersetup_3-4-3.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -ArgumentList '/VERYSILENT','/PORTABLE',"/DIR=`"$t\app`"" -Wait;if(Test-Path "$t\app\LockHunter.exe"){Start-Process "$t\app\LockHunter.exe" -Wait};Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*LockHunter*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*LockHunter*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Ultimate Windows Tweaker
+
+
+$n='UltimateTweaker';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.thewindowsclub.com/downloads/UWT5.zip' -OutFile $z -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter '*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Ultimate*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Ultimate*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***LatencyMon
+
+
+$n='LatencyMon';$t="$env:TEMP\$n";$exe="$t\latencymon.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.resplendence.com/download/LatencyMon.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*Latency*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Latency*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Snappy Driver Installer Origin
+
+
+$n='SDI_Origin';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Fetching latest $n from GitHub..." -ForegroundColor Cyan;$rel=(Invoke-RestMethod 'https://api.github.com/repos/DriverPackSolution/DriverPack-Solution/releases/latest').assets|Where-Object{$_.name -match 'SDI.*\.zip$'}|Select-Object -First 1;if($rel){Invoke-WebRequest -Uri $rel.browser_download_url -OutFile $z -UseBasicParsing}else{Invoke-WebRequest -Uri 'https://sourceforge.net/projects/snappy-driver-installer-origin/files/latest/download' -OutFile $z -UseBasicParsing -UserAgent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'};Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'SDI*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*SDI*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*SDI*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***3DP Net
+
+
+$n='3DPNet';$t="$env:TEMP\$n";$exe="$t\3DPNet.exe";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.3dpchip.com/3dpchip/net/3DP_Net.exe' -OutFile $exe -UseBasicParsing;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item "F:\Downloads\*3DP*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*3DP*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***SSD-Z
+
+
+$n='SSDZ';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'http://aezay.dk/aezay/ssdz/ssdz_16.09.09b.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'SSD-Z.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*SSD-Z*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*SSD*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***ShellBag Analyzer & Cleaner
+
+
+$n='ShellBagAnalyzer';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/shellbag-analyzer-cleaner/ShellBag.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'ShellBag*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*ShellBag*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*ShellBag*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Reduce Memory
+
+
+$n='ReduceMemory';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/reduce-memory/ReduceMemory.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'ReduceMemory*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*ReduceMemory*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Reduce*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Re-Enable
+
+
+$n='ReEnable';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/re-enable/ReEnable.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'ReEnable*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*ReEnable*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*ReEnable*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
+
+
+
+
+***Edge Blocker
+
+
+$n='EdgeBlocker';$t="$env:TEMP\$n";$z="$t.zip";New-Item -ItemType Directory -Path $t -Force|Out-Null;Write-Host "Downloading $n..." -ForegroundColor Cyan;Invoke-WebRequest -Uri 'https://www.sordum.org/files/download/edge-blocker/EdgeBlock.zip' -OutFile $z -UseBasicParsing;Expand-Archive -Path $z -DestinationPath $t -Force;$exe=Get-ChildItem $t -Filter 'Edge_Blocker*.exe' -Recurse|Select-Object -First 1;Write-Host "Running $n..." -ForegroundColor Green;Start-Process $exe.FullName -Verb RunAs -Wait;Write-Host "Purging..." -ForegroundColor Yellow;Remove-Item $t -Recurse -Force -EA 0;Remove-Item $z -Force -EA 0;Remove-Item "F:\Downloads\*Edge*Block*" -Recurse -Force -EA 0;Remove-Item "F:\backup\windowsapps\installed\*Edge*" -Recurse -Force -EA 0;Write-Host "DONE: $n purged" -ForegroundColor Green
